@@ -1,0 +1,27 @@
+{
+  "name": "markupes",
+  "version": "0.1.0",
+  "description": "ECMAscript6 markup based on template literals and inspired in Coffeekup",
+  "main": "./lib/markupes",
+  "module": "[markupjs.js, optparse.js, cli.js, thud-clunk.js, beautify,js]",
+  "modules.root": "lib",
+  "bin": {
+    "markupjs": "./bin/markupes"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "template",
+    "javascript"
+  ],
+  "author": "abhocetabhac <abhocetabhacetabilla@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "acorn": "^4.0.3",
+    "js-yaml": "^3.6.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.7.0"
+  }
+}

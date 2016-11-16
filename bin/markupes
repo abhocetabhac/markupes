@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+// Some ANSI terminal colors
+const 
+  RST = '\x1b[0m',  // reset
+  RED = '\x1b[31m',
+  GRE = '\x1b[32m',
+  YEL = '\x1b[33m',
+  BLU = '\x1b[34m',
+  MAG = '\x1b[35m',
+  CYA = '\x1b[36m';
+
+if (require.main === module) {
+  const
+    path = require('path'),
+    fs = require('fs');
+  const lib = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
+  try {
+    require(lib + '/cli').run();
+  } catch (err) {
+    err.stack = err.stack.replace(/^(.*?:\s)/, RED+'$1'+RST);
+    const FIVE_LINES = /^(?:(.*)(?:(?:\r\n?)|\n|\u2028|\u2029)){0,5}/;
+    console.error((FIVE_LINES.exec(err.stack) || [err.stack])[0], '...');
+    process.exit(); 
+  }
+}
+
+//console.log(require.main);
+//console.log(module);
+//console.log(require.main === module);
+//console.log(this);
